@@ -36,7 +36,14 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
        maxZoom: 19,
        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+    });
+//Sattelite Layer
+const satellite = L.tileLayer(
+    'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+        attribution: 'Tiles (c) Esri -, Maxar, Earthstar Geographics, & GIS User Community'}
+
+);
+satellite.addTo(map);
     //Render pins
      fetch(mapDataUrl)
      .then(response=>response.json())
